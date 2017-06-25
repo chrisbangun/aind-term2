@@ -59,7 +59,11 @@ def window_transform_text(text,window_size,step_size):
     # containers for input/output pairs
     inputs = []
     outputs = []
-    
+    index = 0
+    while index + window_size < len(text):
+        inputs.append(text[index:index+window_size])
+        outputs.append(text[index+window_size])
+        index += step_size
 
     
     return inputs,outputs
